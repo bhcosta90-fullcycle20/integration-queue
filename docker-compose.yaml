@@ -1,0 +1,15 @@
+# For more information: https://laravel.com/docs/sail
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3.8-management-alpine
+    hostname: rabbitmq
+    ports:
+      - 15672:15672 #Interface
+      - 5672:5672 #Rabbitmq
+    volumes:
+      - ./data/rabbitmq:/var/lib/rabbitmq/mnesia
+    environment:
+      - RABBITMQ_DEFAULT_VHOST=rabbitmq
+      - RABBITMQ_DEFAULT_USER=root
+      - RABBITMQ_DEFAULT_PASS=root
